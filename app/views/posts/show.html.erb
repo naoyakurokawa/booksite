@@ -30,4 +30,8 @@
   <%= link_to("編集", "/posts/#{@post.id}/edit",class: 'btn btn-default') %>
 </button>
 
+<button type="button" class="btn btn-dark">
+<%= link_to("削除", "/posts/#{@post.id}/destroy",{method:"post"}) %>
+</button>
+
 </div>
