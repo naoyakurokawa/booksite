@@ -1,2 +1,30 @@
-<h1>Posts#index</h1>
-<p>Find me in app/views/posts/index.html.erb</p>
+<% @posts.each do |post| %>
+
+<div class="container border border-dark m-5 p-5">
+<table class="table">
+  <tr>
+    <td>投稿日</td>
+    <td><%= post.created_at %></td>
+  </tr>
+  <tr>
+    <td>投稿者</td>
+    <td><%= post.contributor %></td>
+  </tr>
+  <tr>
+    <td>本のタイトル</td>
+    <td><%= post.book_title %></td>
+  </tr>
+
+</table>
+
+<br>
+
+<h1><%= post.article_title %></h1>
+<br>
+<p><%= post.article_body %></p>
+  <button type="button" class="btn btn-dark">
+    <%= link_to("詳細を見る", "/posts/#{post.id}",class: 'btn btn-default') %>
+  </button>
+</div>
+
+<% end %>

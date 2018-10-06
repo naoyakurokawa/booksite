@@ -1,0 +1,28 @@
+<div class="container border border-dark m-5 p-5">
+<table class="table">
+  <tr>
+    <td>本のタイトル</td>
+    <td><%= @post.book_title %></td>
+  </tr>
+  <tr>
+    <td>著者名</td>
+    <td><%= @post.author_name_of_book %></td>
+  </tr>
+  <tr>
+    <td>出版社</td>
+    <td><%= @post.name_of_publisher %></td>
+  </tr>
+  <tr>
+    <td>発売日</td>
+    <td><%= @post.release_date %></td>
+  </tr>
+</table>
+
+<br>
+<br>
+<br>
+
+<h1><%= @post.article_title %></h1>
+<br>
+<p><%= @post.article_body %></p>
+</div>
