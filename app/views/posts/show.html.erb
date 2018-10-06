@@ -25,4 +25,9 @@
 <h1><%= @post.article_title %></h1>
 <br>
 <p><%= @post.article_body %></p>
+
+<button type="button" class="btn btn-dark">
+  <%= link_to("編集", "/posts/#{@post.id}/edit",class: 'btn btn-default') %>
+</button>
+
 </div>

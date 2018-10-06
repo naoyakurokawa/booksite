@@ -22,4 +22,20 @@ class PostsController < ApplicationController
     @post = Post.find_by(id:params[:id])
   end
 
+  def edit
+    @post = Post.find_by(id:params[:id])
+  end
+
+  def update
+    @post = Post.new(book_title: params[:book_title] ,
+      author_name_of_book: params[:author_name_of_book],
+      name_of_publisher: params[:name_of_publisher],
+      release_date: params[:release_date],
+      article_title: params[:article_title],
+      article_body: params[:article_body])
+
+    @post.save
+    redirect_to("/posts/index")
+  end
+
 end
