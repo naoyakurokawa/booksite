@@ -31,7 +31,7 @@
 </button>
 
 <button type="button" class="btn btn-dark">
-<%= link_to("削除", "/posts/#{@post.id}/destroy",{method:"post"}) %>
+<%= link_to("削除", "/posts/#{@post.id}/destroy", method: :post, data: { confirm: '削除しますか？' }) %>
 </button>
 
 </div>

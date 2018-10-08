@@ -2,6 +2,10 @@
 
   <div class="container border border-dark m-5 p-5">
 
+    <% @post.errors.full_messages.each do |message| %>
+    <div class="errors">  <%= message %> </div>
+    <% end %>
+
     <p>本のタイトル</p>
     <input name="book_title" value = "<%= @post.book_title %>" class="input_form">
 

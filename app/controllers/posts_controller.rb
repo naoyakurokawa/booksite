@@ -3,7 +3,12 @@ class PostsController < ApplicationController
     @posts = Post.all.order(created_at: :desc)
   end
 
+  def show
+    @post = Post.find_by(id:params[:id])
+  end
+
   def new
+    @post = Post.new
   end
 
   def create
@@ -14,12 +19,11 @@ class PostsController < ApplicationController
       article_title: params[:article_title],
       article_body: params[:article_body])
 
-    @post.save
-    redirect_to("/posts/index")
-  end
-
-  def show
-    @post = Post.find_by(id:params[:id])
+    if @post.save
+     redirect_to("/posts/index")
+   else
+     render("posts/new")
+   end
   end
 
   def edit
@@ -34,8 +38,11 @@ class PostsController < ApplicationController
       article_title: params[:article_title],
       article_body: params[:article_body])
 
-    @post.save
-    redirect_to("/posts/index")
+      if @post.save
+       redirect_to("/posts/index")
+     else
+       render("posts/edit")
+     end
   end
 
   def destroy
