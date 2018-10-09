@@ -1,4 +1,5 @@
 <div class="container border border-dark m-5 p-5">
+<img src = "<%= "/book_images/#{@post.image_book}" %>">
 <table class="table">
   <tr>
     <td>本のタイトル</td>
@@ -27,7 +28,7 @@
 <p><%= @post.article_body %></p>
 
 <button type="button" class="btn btn-dark">
-  <%= link_to("編集", "/posts/#{@post.id}/edit",class: 'btn btn-default') %>
+  <%= link_to("編集", "/posts/#{@post.id}/edit") %>
 </button>
 
 <button type="button" class="btn btn-dark">

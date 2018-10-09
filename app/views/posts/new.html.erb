@@ -1,25 +1,28 @@
-<%= form_tag("/posts/create") do %>
+<div class="container border border-dark m-5 p-5">
 
-  <div class="container border border-dark m-5 p-5">
+
+  <%= form_tag("/posts/create",{multipart: true}) do %>
+    <p>本の画像</p>
+    <input name="image" type="file">
 
     <% @post.errors.full_messages.each do |message| %>
     <div class="errors">  <%= message %> </div>
     <% end %>
 
     <p>本のタイトル</p>
-    <input name="book_title" class="input_form">
+    <input name="book_title" value = "<%= @post.book_title %>" class="input_form">
 
     <p>著者名</p>
-    <input name="author_name_of_book" class="input_form">
+    <input name="author_name_of_book" value = "<%= @post.author_name_of_book %>" class="input_form">
 
     <p>出版社</p>
-    <input name="name_of_publisher" class="input_form">
+    <input name="name_of_publisher" value = "<%= @post.name_of_publisher %>" class="input_form">
 
     <p>発売日</p>
-    <input name="release_date" class="input_form">
+    <input name="release_date" value = "<%= @post.release_date %>" class="input_form">
 
     <p>記事タイトル</p>
-    <input name="article_title" class="input_form">
+    <input name="article_title" value = "<%= @post.article_title %>" class="input_form">
 
     <p>記事本文</p>
     <textarea name="article_body" class="article">
