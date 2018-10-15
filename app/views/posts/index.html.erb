@@ -1,6 +1,6 @@
 <% @posts.each do |post| %>
 
-<div class="container border border-dark m-5 p-5">
+<div class="container border border-dark mx-auto mt-5 p-5">
 <table class="table">
   <tr>
     <td>投稿日</td>
@@ -22,9 +22,7 @@
 <h1><%= post.article_title %></h1>
 <br>
 <p><%= post.article_body %></p>
-  <button type="button" class="btn btn-dark">
-    <%= link_to("詳細を見る", "/posts/#{post.id}",class: 'btn btn-default') %>
-  </button>
+    <%= link_to("詳細を見る", "/posts/#{post.id}",class: 'btn btn-dark') %>
 </div>
 
 <% end %>

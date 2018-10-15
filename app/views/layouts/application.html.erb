@@ -23,17 +23,23 @@
         <span class="navbar-toggler-icon"></span>
       </button>
 
-    <div class="collapse navbar-collapse" id="Navber">
-      <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <%= link_to("ホーム", "/posts/index") %>
-      </li>
-      <li class="nav-item">
-        <%= link_to("投稿する", "/posts/new") %>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">ログイン</a>
-      </li>
+        <div class="collapse navbar-collapse" id="Navber">
+          <ul class="navbar-nav mr-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/posts/index">ホーム</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/posts/new">投稿する</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/new">ユーザー登録</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/users/index">ユーザー一覧</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">ログイン</a>
+          </li>
 
      </ul>
     <form class="form-inline my-2 my-lg-0">

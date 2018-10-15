@@ -1,4 +1,4 @@
-<div class="container border border-dark m-5 p-5">
+<div class="container border border-dark mx-auto mt-5 p-5">
 <img src = "<%= "/book_images/#{@post.id}.png" %>">
 <table class="table">
   <tr>
@@ -27,12 +27,8 @@
 <br>
 <p><%= @post.article_body %></p>
 
-<button type="button" class="btn btn-dark">
-  <%= link_to("編集", "/posts/#{@post.id}/edit") %>
-</button>
+  <%= link_to("編集", "/posts/#{@post.id}/edit" ,class:'btn btn-dark') %>
 
-<button type="button" class="btn btn-dark">
-<%= link_to("削除", "/posts/#{@post.id}/destroy", method: :post, data: { confirm: '削除しますか？' }) %>
-</button>
+<%= link_to("削除", "/posts/#{@post.id}/destroy", method: :post, data: { confirm: '削除しますか？' },class:'btn btn-dark') %>
 
 </div>
