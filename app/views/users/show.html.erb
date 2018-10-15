@@ -1,0 +1,20 @@
+<div class="container border border-dark mx-auto mt-5 p-5">
+<table class="table">
+  <tr>
+    <td>ユーザー名</td>
+    <td><%= @user.name %></td>
+  </tr>
+  <tr>
+    <td>メールアドレス</td>
+    <td><%= @user.email %></td>
+  </tr>
+</table>
+
+<br>
+
+
+<%= link_to("編集", "/users/#{@user.id}/edit" ,class:'btn btn-dark') %>
+
+<%= link_to("削除", "/users/#{@user.id}/destroy", method: :post, data: { confirm: '削除しますか？' },class:'btn btn-dark') %>
+
+</div>

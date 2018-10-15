@@ -1,0 +1,17 @@
+<% @users.each do |user| %>
+
+<div class="container border border-dark mx-auto mt-5 p-5">
+<table class="table">
+  <tr>
+    <td>ユーザー名</td>
+    <td><%= user.name %></td>
+  </tr>
+
+</table>
+
+<br>
+
+    <%= link_to("詳細を見る", "/users/#{user.id}",class: 'btn btn-dark') %>
+</div>
+
+<% end %>
