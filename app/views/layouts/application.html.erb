@@ -28,9 +28,14 @@
           <li class="nav-item">
             <a class="nav-link" href="/posts/index">ホーム</a>
           </li>
+          <% if session[:user_id] %>
           <li class="nav-item">
             <a class="nav-link" href="/posts/new">投稿する</a>
           </li>
+          <li class="nav-item">
+            <%= session[:user_id] %>
+          </li>
+          <% else %>
           <li class="nav-item">
             <a class="nav-link" href="/users/new">ユーザー登録</a>
           </li>
@@ -38,8 +43,11 @@
             <a class="nav-link" href="/users/index">ユーザー一覧</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">ログイン</a>
+            <a class="nav-link" href="/login">ログイン</a>
           </li>
+        </li>
+        <% end %>
+
 
      </ul>
     <form class="form-inline my-2 my-lg-0">

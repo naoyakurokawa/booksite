@@ -20,12 +20,10 @@ class PostsController < ApplicationController
       article_body: params[:article_body])
 
     if @post.save
-      # image = params[:image_book]
-      # File.binwrite("public/book_images/#{@post.image_book}",params[:image].read)
 
      redirect_to("/posts/index")
    else
-     render("posts/new")
+     render("/posts/new")
    end
   end
 
@@ -34,25 +32,17 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.new(book_title: params[:book_title] ,
+    @post = Post.new(book_title: params[:book_title],
       author_name_of_book: params[:author_name_of_book],
       name_of_publisher: params[:name_of_publisher],
       release_date: params[:release_date],
       article_title: params[:article_title],
       article_body: params[:article_body])
 
-      if @post.save
-        @post.reload
-        logger.debug("------------------------")
-        logger.debug(@post.id)
-          @post.image_book = "#{@post.id}.png"
-          @post.save
-
-          image = params[:image]
-          File.binwrite("public/book_images/#{@post.image_book}",image.read)
+      if @post.update
        redirect_to("/posts/index")
      else
-       render("posts/edit")
+       render("/posts/edit")
      end
   end
 

@@ -1,0 +1,14 @@
+<div class="container border border-dark mx-auto mt-5 p-5">
+<%= form_tag("/login") do %>
+  <% if @error_message %>
+  <%= @error_message %>
+  <% end %>
+
+  <p>メールアドレス</p>
+  <input name="email">
+
+  <p>パスワード</p>
+  <input type = "password" name="password">
+
+<% end %>
+</div>
