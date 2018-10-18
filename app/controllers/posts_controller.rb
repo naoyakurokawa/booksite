@@ -32,14 +32,15 @@ class PostsController < ApplicationController
   end
 
   def update
-    @post = Post.new(book_title: params[:book_title],
-      author_name_of_book: params[:author_name_of_book],
-      name_of_publisher: params[:name_of_publisher],
-      release_date: params[:release_date],
-      article_title: params[:article_title],
-      article_body: params[:article_body])
+    @post = Post.find_by(id:params[:id])
+    @post.book_title = params[:book_title]
+    @post.author_name_of_book = params[:author_name_of_book]
+    @post.name_of_publisher = params[:name_of_publisher]
+    @post.release_date = params[:release_date]
+    @post.article_title = params[:article_title]
+    @post.article_body = params[:article_body]
 
-      if @post.update
+      if @post.save
        redirect_to("/posts/index")
      else
        render("/posts/edit")
