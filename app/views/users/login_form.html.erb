@@ -1,4 +1,9 @@
 <div class="container border border-dark mx-auto mt-5 p-5">
+
+  <% if flash[:notice] %>
+    <p><%= flash[:notice] %></p>
+  <% end %>
+
 <%= form_tag("/login") do %>
   <% if @error_message %>
   <%= @error_message %>

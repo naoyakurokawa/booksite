@@ -2,6 +2,10 @@
 <img src = "<%= "/book_images/#{@post.id}.png" %>">
 <table class="table">
   <tr>
+    <td>投稿者</td>
+    <td><%= link_to(@user.name,"/users/#{@user.id}") %></td>
+  </tr>
+  <tr>
     <td>本のタイトル</td>
     <td><%= @post.book_title %></td>
   </tr>
@@ -27,8 +31,11 @@
 <br>
 <p><%= @post.article_body %></p>
 
-  <%= link_to("編集", "/posts/#{@post.id}/edit" ,class:'btn btn-dark') %>
+<% if @post.user_id == @current_user.id %>
+<%= link_to("編集", "/posts/#{@post.id}/edit" ,class:'btn btn-dark') %>
 
 <%= link_to("削除", "/posts/#{@post.id}/destroy", method: :post, data: { confirm: '削除しますか？' },class:'btn btn-dark') %>
+
+<% end %>
 
 </div>

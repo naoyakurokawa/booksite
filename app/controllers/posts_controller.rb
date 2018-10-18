@@ -5,10 +5,15 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find_by(id:params[:id])
+    @user = User.find_by(id: @post.user_id)
   end
 
   def new
     @post = Post.new
+    if @current_user == nil
+      flash[:notice] = "ログインが必要です"
+      redirect_to("/login")
+    end
   end
 
   def create
@@ -17,7 +22,9 @@ class PostsController < ApplicationController
       name_of_publisher: params[:name_of_publisher],
       release_date: params[:release_date],
       article_title: params[:article_title],
-      article_body: params[:article_body])
+      article_body: params[:article_body],
+      user_id: @current_user.id
+    )
 
     if @post.save
 
