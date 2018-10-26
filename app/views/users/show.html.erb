@@ -13,7 +13,7 @@
 
 <br>
 
-<% if @user.id == @current_user.id %>
+<% if @current_user.present? && @user.id == @current_user.id %>
 <%= link_to("編集", "/users/#{@user.id}/edit" ,class:'btn btn-dark') %>
 
 <%= link_to("削除", "/users/#{@user.id}/destroy", method: :post, data: { confirm: '削除しますか？' },class:'btn btn-dark') %>
@@ -33,7 +33,7 @@
   </tr>
   <tr>
     <td>投稿者</td>
-    <td><%= link_to(@current_user.name,"/users/#{@current_user.id}") %></td>
+    <td><%= link_to(post.user.name,"/users/#{@user.id}") %></td>
   </tr>
   <tr>
     <td>本のタイトル</td>
