@@ -12,14 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2018_10_28_005912) do
 
-  create_table "likes", force: :cascade do |t|
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "post_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "posts", force: :cascade do |t|
+  create_table "posts", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "book_title"
     t.string "author_name_of_book"
     t.string "name_of_publisher"
@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2018_10_28_005912) do
     t.integer "user_id"
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name"
     t.text "email"
     t.datetime "created_at", null: false

@@ -5,21 +5,25 @@
 #   gem 'sqlite3'
 #
 default: &default
-  adapter: sqlite3
-  pool: 5
-  timeout: 5000
+  adapter: mysql2
+  encoding: utf8
+  collation: utf8_general_ci
 
 development:
   <<: *default
-  adapter: postgresql
-  encoding: unicode
-  pool: 5
+  database: booksite-development
+  username: root
+  password:
 
 test:
   <<: *default
-  database: db/test.sqlite3
+  host: 127.0.0.1
+  database: booksite-test
+  username: root
+  password:
 
 production:
   <<: *default
   adapter: postgresql
-  database: db/production.postgresql
+  encoding: unicode
+  pool: 5
