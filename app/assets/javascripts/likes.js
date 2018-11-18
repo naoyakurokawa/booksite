@@ -1,9 +1,11 @@
 $(function() {
     $('#like').click(function() {
-        var url = '/likes/1/destroy';
+        var postId = gon.post_id
+        console.log(postId)
+        var url = '/likes/' + postId + '/destroy';
         if ($('#heart').hasClass("far")) {
             console.log('like');
-            url = '/likes/1/create';
+            url = '/likes/' + postId + '/create';
         }
         $.ajax({
             url: url,
