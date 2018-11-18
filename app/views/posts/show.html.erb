@@ -32,15 +32,15 @@
 <p><%= @post.article_body %></p>
 
 <% if @current_user.present? && Like.find_by(user_id:@current_user.id,post_id:@post.id) %>
-  <%= link_to("/likes/#{@post.id}/destroy",{method:"post"})do %>
-    <span class="fa fa-heart like-btn"></span>
+  <%= link_to("javascript:void(0)", id: 'like') do %>
+    <span id="heart" class="fa fa-heart like-btn"></span>
   <% end %>
 <% else %>
-  <%= link_to("/likes/#{@post.id}/create",{method:"post"})do %>
-    <span class="far fa-heart like-btn"></span>
+  <%= link_to("javascript:void(0)", id: 'like') do %>
+    <span id="heart" class="far fa-heart like-btn"></span>
   <% end %>
 <% end %>
-<%= Like.where(post_id:@post.id).count %>
+<span id="likecount"><%= Like.where(post_id:@post.id).count %></span>
 
 <br>
 <br>
