@@ -9,7 +9,8 @@ class LikesController < ApplicationController
             post_id:params[:post_id]
             )
         @like.save
-        render :json => { result: "success" }
+        like_count = Like.where(post_id:params[:post_id]).count
+        render :json => {like_count: like_count }
       end
     
 
@@ -25,7 +26,8 @@ class LikesController < ApplicationController
             post_id:params[:post_id]
             )
         @like.destroy
-        render :json => { result: "success" }
+        like_count = Like.where(post_id:params[:post_id]).count
+        render :json => {like_count: like_count }
       end
     end
  

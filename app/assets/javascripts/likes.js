@@ -16,6 +16,7 @@ $(function() {
             } else {
                 $('#heart').attr('class', 'far fa-heart like-btn');
             }
+            $("#likecount").html(data.like_count)
         })
         .fail( (data) => {
             console.log(data);

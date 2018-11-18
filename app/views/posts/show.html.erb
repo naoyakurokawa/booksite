@@ -40,7 +40,7 @@
     <span id="heart" class="far fa-heart like-btn"></span>
   <% end %>
 <% end %>
-<%= Like.where(post_id:@post.id).count %>
+<span id="likecount"><%= Like.where(post_id:@post.id).count %></span>
 
 <br>
 <br>
